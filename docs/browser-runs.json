@@ -1,0 +1,247 @@
+{
+  "checked_at_utc": "2026-10-02T14:17:17.854329+00:00",
+  "scope": "actual local browser form runs on synthetic data; separate from isolated evaluation",
+  "runs": [
+    {
+      "id": "8dec056468424f4882e78cd73f5af31e",
+      "profile": "planner",
+      "question": "请把准备项目演示、阅读整理笔记、整理个人资料三项任务安排到已有空闲窗口，不能冲突或超过截止时间，生成待确认日程。",
+      "status": "exported",
+      "error": null,
+      "steps": 11,
+      "tokens": 17332,
+      "result": {
+        "events": [
+          {
+            "task_id": "interview",
+            "title": "准备项目演示",
+            "start": "2026-10-05T09:00:00+08:00",
+            "end": "2026-10-05T10:00:00+08:00"
+          },
+          {
+            "task_id": "reading",
+            "title": "阅读与整理笔记",
+            "start": "2026-10-05T11:00:00+08:00",
+            "end": "2026-10-05T11:45:00+08:00"
+          },
+          {
+            "task_id": "paperwork",
+            "title": "整理个人资料",
+            "start": "2026-10-05T14:00:00+08:00",
+            "end": "2026-10-05T14:30:00+08:00"
+          }
+        ],
+        "input_sha256": "74cafc07f9c9a2851bb4e8c793b4197fab6848cbf4c2e81c1121846e8c88643b",
+        "review_required": true,
+        "boundary": "Draft only; no calendar account is connected."
+      },
+      "export": {
+        "filename": "8dec056468424f4882e78cd73f5af31e.ics",
+        "sha256": "bb083d9bde88b35db0c1943a3e9280071bb68c44f0aa98f2ae25dc23187aabb7",
+        "events": 3,
+        "calendar_account_written": false
+      }
+    },
+    {
+      "id": "d0d968314a774aab8362dec0143c39dd",
+      "profile": "analyst",
+      "question": "比较 2026 年 7 月和 8 月销售额，按地区拆分变化。哪个地区贡献了下降？金额换算为元，不推断数据以外的原因。",
+      "status": "completed",
+      "error": null,
+      "steps": 4,
+      "tokens": 4836,
+      "result": {
+        "draft": "根据查询结果，2026年7月和8月的销售额按地区拆分变化如下：7月的总销售额为12000000 CNY，8月为9000000 CNY，下降了300000 CNY，降幅为25.00%。其中，北区销售额从12000000 CNY下降到9000000 CNY，下降了300000 CNY，降幅为25.00%。南区销售额从9000000 CNY上升到9600000 CNY，增加了6000 CNY，增幅为6.67%。总销售额从12000000 CNY下降到18600000 CNY，下降了24000 CNY，降幅为11.43%。",
+        "tables": [
+          {
+            "columns": [
+              "month",
+              "region",
+              "revenue_cents"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                7200000
+              ],
+              [
+                "2026-07",
+                "north",
+                4800000
+              ],
+              [
+                "2026-07",
+                "south",
+                5400000
+              ],
+              [
+                "2026-07",
+                "south",
+                3600000
+              ],
+              [
+                "2026-08",
+                "north",
+                5400000
+              ],
+              [
+                "2026-08",
+                "north",
+                3600000
+              ],
+              [
+                "2026-08",
+                "south",
+                5800000
+              ],
+              [
+                "2026-08",
+                "south",
+                3800000
+              ]
+            ],
+            "query_id": "q1",
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month IN ('2026-07', '2026-08')",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+          },
+          {
+            "columns": [
+              "month",
+              "region",
+              "SUM(revenue_cents)"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                12000000
+              ],
+              [
+                "2026-07",
+                "south",
+                9000000
+              ],
+              [
+                "2026-08",
+                "north",
+                9000000
+              ],
+              [
+                "2026-08",
+                "south",
+                9600000
+              ]
+            ],
+            "query_id": "q2",
+            "sql": "SELECT month,region,SUM(revenue_cents) FROM sales WHERE month IN ('2026-07','2026-08') GROUP BY month,region ORDER BY month,region",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2",
+            "verified_comparison": {
+              "earlier": "2026-07",
+              "later": "2026-08",
+              "query_id": "q2",
+              "unit": "CNY",
+              "columns": [
+                "region",
+                "earlier_CNY",
+                "later_CNY",
+                "change_CNY",
+                "change_percent"
+              ],
+              "rows": [
+                [
+                  "north",
+                  "120000",
+                  "90000",
+                  "-30000",
+                  "-25.00"
+                ],
+                [
+                  "south",
+                  "90000",
+                  "96000",
+                  "6000",
+                  "6.67"
+                ],
+                [
+                  "TOTAL",
+                  "210000",
+                  "186000",
+                  "-24000",
+                  "-11.43"
+                ]
+              ]
+            }
+          }
+        ],
+        "verified_comparisons": [
+          {
+            "earlier": "2026-07",
+            "later": "2026-08",
+            "query_id": "q2",
+            "unit": "CNY",
+            "columns": [
+              "region",
+              "earlier_CNY",
+              "later_CNY",
+              "change_CNY",
+              "change_percent"
+            ],
+            "rows": [
+              [
+                "north",
+                "120000",
+                "90000",
+                "-30000",
+                "-25.00"
+              ],
+              [
+                "south",
+                "90000",
+                "96000",
+                "6000",
+                "6.67"
+              ],
+              [
+                "TOTAL",
+                "210000",
+                "186000",
+                "-24000",
+                "-11.43"
+              ]
+            ]
+          }
+        ],
+        "review_required": true,
+        "boundary": "Queries and numbers are recorded; interpretation and causality need human review."
+      }
+    },
+    {
+      "id": "5ca1a5813ae24a7fb304540b37af49c2",
+      "profile": "knowledge",
+      "question": "北区客户申请退款需要提供什么？由谁复核，支持人员能否直接批准？请引用原文。",
+      "status": "completed",
+      "error": null,
+      "steps": 2,
+      "tokens": 1390,
+      "result": {
+        "draft": "根据文档内容，北区客户申请退款需要提供订单号，由财务在两个工作日内复核。支持人员不能直接批准退款。此信息来源于《北区租户：席位与退款》文档。",
+        "outcome": "answer",
+        "citations": [
+          {
+            "id": "north-billing",
+            "title": "北区租户：席位与退款",
+            "version": 1,
+            "sha256": "5079180dc09427d92061e75bb4f5b04f31ba5f03c53740793c11763e32861457",
+            "quote": "退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。",
+            "line_start": 3,
+            "line_end": 4
+          }
+        ],
+        "review_required": true,
+        "boundary": "Quotes are verified; semantic support for the draft still needs review.",
+        "citation_selection": "server-attached retrieved excerpts; not model-selected quotations"
+      }
+    }
+  ]
+}

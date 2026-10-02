@@ -1,0 +1,1254 @@
+{
+  "checked_at_utc": "2026-10-02T14:07:12.782438+00:00",
+  "provider": "ollama",
+  "model": "qwen3-vl:2b-instruct",
+  "scope": "synthetic cases; one run each; no exports or paid API calls",
+  "quality_boundary": "completion and machine-checkable evidence only, not independently graded answer quality",
+  "cases": [
+    {
+      "profile": "knowledge",
+      "question": "北区客户申请退款需要提供什么？谁复核、多久复核、客服能直接批准吗？请给出原文引用。",
+      "status": "completed",
+      "error": null,
+      "latency_ms": 12685,
+      "steps": 4,
+      "tokens": 3231,
+      "result": {
+        "draft": "根据文档内容，北区客户申请退款需要提供订单号。退款申请由财务复核，复核时间为两个工作日内。客服不能直接批准退款，只能提交申请。文档原文为：“退款申请需提供订单号，由财务在两个工作日内复核。支持人员只能提交申请，不能直接批准退款。”",
+        "outcome": "answer",
+        "citations": [
+          {
+            "id": "north-billing",
+            "title": "北区租户：席位与退款",
+            "version": 1,
+            "sha256": "5079180dc09427d92061e75bb4f5b04f31ba5f03c53740793c11763e32861457",
+            "quote": "本文件为联调样例，不是实际服务条款。\n席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。",
+            "line_start": 1,
+            "line_end": 4
+          }
+        ],
+        "review_required": true,
+        "boundary": "Quotes are verified; semantic support for the draft still needs review.",
+        "citation_selection": "server-attached retrieved excerpts; not model-selected quotations"
+      },
+      "trace": [
+        {
+          "kind": "model",
+          "step": 1,
+          "milliseconds": 8512,
+          "tokens": 605,
+          "tools": [
+            "search_docs"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "search_docs",
+          "arguments": {
+            "query": "退款 客户 北区 原则"
+          },
+          "result": {
+            "results": []
+          }
+        },
+        {
+          "kind": "model",
+          "step": 2,
+          "milliseconds": 792,
+          "tokens": 648,
+          "tools": [
+            "search_docs"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "search_docs",
+          "arguments": {
+            "query": "退款 席位 申请"
+          },
+          "result": {
+            "results": [
+              {
+                "id": "north-billing",
+                "title": "北区租户：席位与退款",
+                "version": 1,
+                "source_sha256": "5079180dc09427d92061e75bb4f5b04f31ba5f03c53740793c11763e32861457",
+                "line_start": 2,
+                "line_end": 4,
+                "quote": "席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "model",
+          "step": 3,
+          "milliseconds": 1027,
+          "tokens": 841,
+          "tools": [
+            "read_document"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "read_document",
+          "arguments": {
+            "id": "north-billing"
+          },
+          "result": {
+            "id": "north-billing",
+            "title": "北区租户：席位与退款",
+            "version": 1,
+            "source_sha256": "5079180dc09427d92061e75bb4f5b04f31ba5f03c53740793c11763e32861457",
+            "line_start": 1,
+            "line_end": 3,
+            "quote": "本文件为联调样例，不是实际服务条款。\n席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。",
+            "body": "本文件为联调样例，不是实际服务条款。\n席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 4,
+          "milliseconds": 2208,
+          "tokens": 1137,
+          "tools": []
+        },
+        {
+          "kind": "validated_text_completion",
+          "result": {
+            "draft": "根据文档内容，北区客户申请退款需要提供订单号。退款申请由财务复核，复核时间为两个工作日内。客服不能直接批准退款，只能提交申请。文档原文为：“退款申请需提供订单号，由财务在两个工作日内复核。支持人员只能提交申请，不能直接批准退款。”",
+            "outcome": "answer",
+            "citations": [
+              {
+                "id": "north-billing",
+                "title": "北区租户：席位与退款",
+                "version": 1,
+                "sha256": "5079180dc09427d92061e75bb4f5b04f31ba5f03c53740793c11763e32861457",
+                "quote": "本文件为联调样例，不是实际服务条款。\n席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。",
+                "line_start": 1,
+                "line_end": 4
+              }
+            ],
+            "review_required": true,
+            "boundary": "Quotes are verified; semantic support for the draft still needs review.",
+            "citation_selection": "server-attached retrieved excerpts; not model-selected quotations"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "knowledge",
+      "question": "资料里是否有北区企业差旅报销的酒店标准？没有证据时请停止作答，不要给出数字。",
+      "status": "review",
+      "error": null,
+      "latency_ms": 2504,
+      "steps": 3,
+      "tokens": 1960,
+      "result": {
+        "reason": "没有检索到相关资料",
+        "review_required": true
+      },
+      "trace": [
+        {
+          "kind": "model",
+          "step": 1,
+          "milliseconds": 909,
+          "tokens": 605,
+          "tools": [
+            "search_docs"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "search_docs",
+          "arguments": {
+            "query": "北区 企业差旅 报销 酒店标准"
+          },
+          "result": {
+            "results": []
+          }
+        },
+        {
+          "kind": "model",
+          "step": 2,
+          "milliseconds": 793,
+          "tokens": 652,
+          "tools": []
+        },
+        {
+          "kind": "model",
+          "step": 3,
+          "milliseconds": 722,
+          "tokens": 703,
+          "tools": [
+            "stop_for_review"
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "analyst",
+      "question": "Compare July and August 2026 total revenue and break the change down by region. Use SQL; report CNY, not cents. Do not invent causes.",
+      "status": "completed",
+      "error": null,
+      "latency_ms": 10912,
+      "steps": 5,
+      "tokens": 6183,
+      "result": {
+        "draft": "July 2026 revenue was 12 million CNY, and August 2026 revenue was 9.6 million CNY. The total revenue decreased by 240,000 CNY, or 11.43% from July to August. North region revenue decreased by 30,000 CNY, or 25.00%, while south region revenue increased by 6,000 CNY, or 6.67%.",
+        "tables": [
+          {
+            "columns": [
+              "month",
+              "region",
+              "revenue_cents"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                7200000
+              ],
+              [
+                "2026-07",
+                "north",
+                4800000
+              ],
+              [
+                "2026-07",
+                "south",
+                5400000
+              ],
+              [
+                "2026-07",
+                "south",
+                3600000
+              ]
+            ],
+            "query_id": "q1",
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-07'",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+          },
+          {
+            "columns": [
+              "month",
+              "region",
+              "revenue_cents"
+            ],
+            "rows": [
+              [
+                "2026-08",
+                "north",
+                5400000
+              ],
+              [
+                "2026-08",
+                "north",
+                3600000
+              ],
+              [
+                "2026-08",
+                "south",
+                5800000
+              ],
+              [
+                "2026-08",
+                "south",
+                3800000
+              ]
+            ],
+            "query_id": "q2",
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-08'",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+          },
+          {
+            "columns": [
+              "month",
+              "region",
+              "SUM(revenue_cents)"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                12000000
+              ],
+              [
+                "2026-07",
+                "south",
+                9000000
+              ],
+              [
+                "2026-08",
+                "north",
+                9000000
+              ],
+              [
+                "2026-08",
+                "south",
+                9600000
+              ]
+            ],
+            "query_id": "q3",
+            "sql": "SELECT month,region,SUM(revenue_cents) FROM sales WHERE month IN ('2026-07','2026-08') GROUP BY month,region ORDER BY month,region",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2",
+            "verified_comparison": {
+              "earlier": "2026-07",
+              "later": "2026-08",
+              "query_id": "q3",
+              "unit": "CNY",
+              "columns": [
+                "region",
+                "earlier_CNY",
+                "later_CNY",
+                "change_CNY",
+                "change_percent"
+              ],
+              "rows": [
+                [
+                  "north",
+                  "120000",
+                  "90000",
+                  "-30000",
+                  "-25.00"
+                ],
+                [
+                  "south",
+                  "90000",
+                  "96000",
+                  "6000",
+                  "6.67"
+                ],
+                [
+                  "TOTAL",
+                  "210000",
+                  "186000",
+                  "-24000",
+                  "-11.43"
+                ]
+              ]
+            }
+          }
+        ],
+        "verified_comparisons": [
+          {
+            "earlier": "2026-07",
+            "later": "2026-08",
+            "query_id": "q3",
+            "unit": "CNY",
+            "columns": [
+              "region",
+              "earlier_CNY",
+              "later_CNY",
+              "change_CNY",
+              "change_percent"
+            ],
+            "rows": [
+              [
+                "north",
+                "120000",
+                "90000",
+                "-30000",
+                "-25.00"
+              ],
+              [
+                "south",
+                "90000",
+                "96000",
+                "6000",
+                "6.67"
+              ],
+              [
+                "TOTAL",
+                "210000",
+                "186000",
+                "-24000",
+                "-11.43"
+              ]
+            ]
+          }
+        ],
+        "review_required": true,
+        "boundary": "Queries and numbers are recorded; interpretation and causality need human review."
+      },
+      "trace": [
+        {
+          "kind": "model",
+          "step": 1,
+          "milliseconds": 1726,
+          "tokens": 613,
+          "tools": [
+            "describe_sales"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "describe_sales",
+          "arguments": {},
+          "result": {
+            "table": "sales",
+            "columns": {
+              "month": "YYYY-MM",
+              "region": "region code",
+              "product": "product code",
+              "orders": "count of orders",
+              "revenue_cents": "revenue in integer CNY cents",
+              "returns": "count of returns"
+            },
+            "scope": "synthetic monthly aggregates, not live company revenue",
+            "dimensions": {
+              "columns": [
+                "month",
+                "region",
+                "product"
+              ],
+              "rows": [
+                [
+                  "2026-06",
+                  "north",
+                  "desk"
+                ],
+                [
+                  "2026-06",
+                  "north",
+                  "lamp"
+                ],
+                [
+                  "2026-06",
+                  "south",
+                  "desk"
+                ],
+                [
+                  "2026-06",
+                  "south",
+                  "lamp"
+                ],
+                [
+                  "2026-07",
+                  "north",
+                  "desk"
+                ],
+                [
+                  "2026-07",
+                  "north",
+                  "lamp"
+                ],
+                [
+                  "2026-07",
+                  "south",
+                  "desk"
+                ],
+                [
+                  "2026-07",
+                  "south",
+                  "lamp"
+                ],
+                [
+                  "2026-08",
+                  "north",
+                  "desk"
+                ],
+                [
+                  "2026-08",
+                  "north",
+                  "lamp"
+                ],
+                [
+                  "2026-08",
+                  "south",
+                  "desk"
+                ],
+                [
+                  "2026-08",
+                  "south",
+                  "lamp"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "kind": "model",
+          "step": 2,
+          "milliseconds": 1626,
+          "tokens": 940,
+          "tools": [
+            "query_sales"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "query_sales",
+          "arguments": {
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-07'"
+          },
+          "result": {
+            "columns": [
+              "month",
+              "region",
+              "revenue_cents"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                7200000
+              ],
+              [
+                "2026-07",
+                "north",
+                4800000
+              ],
+              [
+                "2026-07",
+                "south",
+                5400000
+              ],
+              [
+                "2026-07",
+                "south",
+                3600000
+              ]
+            ],
+            "query_id": "q1",
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-07'",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 3,
+          "milliseconds": 1488,
+          "tokens": 1193,
+          "tools": [
+            "query_sales"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "query_sales",
+          "arguments": {
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-08'"
+          },
+          "result": {
+            "columns": [
+              "month",
+              "region",
+              "revenue_cents"
+            ],
+            "rows": [
+              [
+                "2026-08",
+                "north",
+                5400000
+              ],
+              [
+                "2026-08",
+                "north",
+                3600000
+              ],
+              [
+                "2026-08",
+                "south",
+                5800000
+              ],
+              [
+                "2026-08",
+                "south",
+                3800000
+              ]
+            ],
+            "query_id": "q2",
+            "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-08'",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 4,
+          "milliseconds": 1539,
+          "tokens": 1445,
+          "tools": [
+            "compare_revenue"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "compare_revenue",
+          "arguments": {
+            "earlier": "2026-07",
+            "later": "2026-08"
+          },
+          "result": {
+            "columns": [
+              "month",
+              "region",
+              "SUM(revenue_cents)"
+            ],
+            "rows": [
+              [
+                "2026-07",
+                "north",
+                12000000
+              ],
+              [
+                "2026-07",
+                "south",
+                9000000
+              ],
+              [
+                "2026-08",
+                "north",
+                9000000
+              ],
+              [
+                "2026-08",
+                "south",
+                9600000
+              ]
+            ],
+            "query_id": "q3",
+            "sql": "SELECT month,region,SUM(revenue_cents) FROM sales WHERE month IN ('2026-07','2026-08') GROUP BY month,region ORDER BY month,region",
+            "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2",
+            "verified_comparison": {
+              "earlier": "2026-07",
+              "later": "2026-08",
+              "query_id": "q3",
+              "unit": "CNY",
+              "columns": [
+                "region",
+                "earlier_CNY",
+                "later_CNY",
+                "change_CNY",
+                "change_percent"
+              ],
+              "rows": [
+                [
+                  "north",
+                  "120000",
+                  "90000",
+                  "-30000",
+                  "-25.00"
+                ],
+                [
+                  "south",
+                  "90000",
+                  "96000",
+                  "6000",
+                  "6.67"
+                ],
+                [
+                  "TOTAL",
+                  "210000",
+                  "186000",
+                  "-24000",
+                  "-11.43"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "kind": "model",
+          "step": 5,
+          "milliseconds": 4384,
+          "tokens": 1992,
+          "tools": [
+            "finish_analysis"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "finish_analysis",
+          "arguments": {
+            "summary": "July 2026 revenue was 12 million CNY, and August 2026 revenue was 9.6 million CNY. The total revenue decreased by 240,000 CNY, or 11.43% from July to August. North region revenue decreased by 30,000 CNY, or 25.00%, while south region revenue increased by 6,000 CNY, or 6.67%.",
+            "query_ids": [
+              "q1",
+              "q2",
+              "q3"
+            ]
+          },
+          "result": {
+            "draft": "July 2026 revenue was 12 million CNY, and August 2026 revenue was 9.6 million CNY. The total revenue decreased by 240,000 CNY, or 11.43% from July to August. North region revenue decreased by 30,000 CNY, or 25.00%, while south region revenue increased by 6,000 CNY, or 6.67%.",
+            "tables": [
+              {
+                "columns": [
+                  "month",
+                  "region",
+                  "revenue_cents"
+                ],
+                "rows": [
+                  [
+                    "2026-07",
+                    "north",
+                    7200000
+                  ],
+                  [
+                    "2026-07",
+                    "north",
+                    4800000
+                  ],
+                  [
+                    "2026-07",
+                    "south",
+                    5400000
+                  ],
+                  [
+                    "2026-07",
+                    "south",
+                    3600000
+                  ]
+                ],
+                "query_id": "q1",
+                "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-07'",
+                "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+              },
+              {
+                "columns": [
+                  "month",
+                  "region",
+                  "revenue_cents"
+                ],
+                "rows": [
+                  [
+                    "2026-08",
+                    "north",
+                    5400000
+                  ],
+                  [
+                    "2026-08",
+                    "north",
+                    3600000
+                  ],
+                  [
+                    "2026-08",
+                    "south",
+                    5800000
+                  ],
+                  [
+                    "2026-08",
+                    "south",
+                    3800000
+                  ]
+                ],
+                "query_id": "q2",
+                "sql": "SELECT month, region, revenue_cents FROM sales WHERE month = '2026-08'",
+                "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2"
+              },
+              {
+                "columns": [
+                  "month",
+                  "region",
+                  "SUM(revenue_cents)"
+                ],
+                "rows": [
+                  [
+                    "2026-07",
+                    "north",
+                    12000000
+                  ],
+                  [
+                    "2026-07",
+                    "south",
+                    9000000
+                  ],
+                  [
+                    "2026-08",
+                    "north",
+                    9000000
+                  ],
+                  [
+                    "2026-08",
+                    "south",
+                    9600000
+                  ]
+                ],
+                "query_id": "q3",
+                "sql": "SELECT month,region,SUM(revenue_cents) FROM sales WHERE month IN ('2026-07','2026-08') GROUP BY month,region ORDER BY month,region",
+                "dataset_sha256": "3fad9ac31ef8bfd15f2e715d72bcb820f939a7bedc29c079d601680f606766e2",
+                "verified_comparison": {
+                  "earlier": "2026-07",
+                  "later": "2026-08",
+                  "query_id": "q3",
+                  "unit": "CNY",
+                  "columns": [
+                    "region",
+                    "earlier_CNY",
+                    "later_CNY",
+                    "change_CNY",
+                    "change_percent"
+                  ],
+                  "rows": [
+                    [
+                      "north",
+                      "120000",
+                      "90000",
+                      "-30000",
+                      "-25.00"
+                    ],
+                    [
+                      "south",
+                      "90000",
+                      "96000",
+                      "6000",
+                      "6.67"
+                    ],
+                    [
+                      "TOTAL",
+                      "210000",
+                      "186000",
+                      "-24000",
+                      "-11.43"
+                    ]
+                  ]
+                }
+              }
+            ],
+            "verified_comparisons": [
+              {
+                "earlier": "2026-07",
+                "later": "2026-08",
+                "query_id": "q3",
+                "unit": "CNY",
+                "columns": [
+                  "region",
+                  "earlier_CNY",
+                  "later_CNY",
+                  "change_CNY",
+                  "change_percent"
+                ],
+                "rows": [
+                  [
+                    "north",
+                    "120000",
+                    "90000",
+                    "-30000",
+                    "-25.00"
+                  ],
+                  [
+                    "south",
+                    "90000",
+                    "96000",
+                    "6000",
+                    "6.67"
+                  ],
+                  [
+                    "TOTAL",
+                    "210000",
+                    "186000",
+                    "-24000",
+                    "-11.43"
+                  ]
+                ]
+              }
+            ],
+            "review_required": true,
+            "boundary": "Queries and numbers are recorded; interpretation and causality need human review."
+          }
+        }
+      ]
+    },
+    {
+      "profile": "planner",
+      "question": "Read the agenda and schedule ALL three tasks in available windows, before deadlines, without overlap. Propose the calendar for human approval.",
+      "status": "awaiting_approval",
+      "error": null,
+      "latency_ms": 42296,
+      "steps": 11,
+      "tokens": 17475,
+      "result": {
+        "events": [
+          {
+            "task_id": "interview",
+            "title": "准备项目演示",
+            "start": "2026-10-05T09:00:00+08:00",
+            "end": "2026-10-05T10:00:00+08:00"
+          },
+          {
+            "task_id": "reading",
+            "title": "阅读与整理笔记",
+            "start": "2026-10-05T14:00:00+08:00",
+            "end": "2026-10-05T14:45:00+08:00"
+          },
+          {
+            "task_id": "paperwork",
+            "title": "整理个人资料",
+            "start": "2026-10-05T11:00:00+08:00",
+            "end": "2026-10-05T11:30:00+08:00"
+          }
+        ],
+        "input_sha256": "74cafc07f9c9a2851bb4e8c793b4197fab6848cbf4c2e81c1121846e8c88643b",
+        "review_required": true,
+        "boundary": "Draft only; no calendar account is connected."
+      },
+      "trace": [
+        {
+          "kind": "model",
+          "step": 1,
+          "milliseconds": 1177,
+          "tokens": 348,
+          "tools": [
+            "read_agenda"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "read_agenda",
+          "arguments": {},
+          "result": {
+            "description": "Synthetic personal calendar; fixed UTC+08:00 offsets, no external accounts",
+            "windows": [
+              {
+                "start": "2026-10-05T09:00:00+08:00",
+                "end": "2026-10-05T12:00:00+08:00"
+              },
+              {
+                "start": "2026-10-05T14:00:00+08:00",
+                "end": "2026-10-05T18:00:00+08:00"
+              },
+              {
+                "start": "2026-10-06T09:00:00+08:00",
+                "end": "2026-10-06T12:00:00+08:00"
+              }
+            ],
+            "busy": [
+              {
+                "title": "已有会议",
+                "start": "2026-10-05T10:00:00+08:00",
+                "end": "2026-10-05T11:00:00+08:00"
+              },
+              {
+                "title": "个人事务",
+                "start": "2026-10-05T15:00:00+08:00",
+                "end": "2026-10-05T16:00:00+08:00"
+              }
+            ],
+            "tasks": [
+              {
+                "id": "interview",
+                "title": "准备项目演示",
+                "minutes": 60,
+                "deadline": "2026-10-05T18:00:00+08:00"
+              },
+              {
+                "id": "reading",
+                "title": "阅读与整理笔记",
+                "minutes": 45,
+                "deadline": "2026-10-06T12:00:00+08:00"
+              },
+              {
+                "id": "paperwork",
+                "title": "整理个人资料",
+                "minutes": 30,
+                "deadline": "2026-10-06T12:00:00+08:00"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "model",
+          "step": 2,
+          "milliseconds": 3050,
+          "tokens": 947,
+          "tools": [
+            "find_slots",
+            "find_slots",
+            "find_slots"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "interview"
+          },
+          "result": {
+            "candidates": [
+              {
+                "task_id": "interview",
+                "title": "准备项目演示",
+                "start": "2026-10-05T09:00:00+08:00",
+                "end": "2026-10-05T10:00:00+08:00"
+              },
+              {
+                "task_id": "interview",
+                "title": "准备项目演示",
+                "start": "2026-10-05T11:00:00+08:00",
+                "end": "2026-10-05T12:00:00+08:00"
+              },
+              {
+                "task_id": "interview",
+                "title": "准备项目演示",
+                "start": "2026-10-05T14:00:00+08:00",
+                "end": "2026-10-05T15:00:00+08:00"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "reading"
+          },
+          "result": {
+            "error": "tool is not available at the current planning stage"
+          }
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "paperwork"
+          },
+          "result": {
+            "error": "tool is not available at the current planning stage"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 3,
+          "milliseconds": 3572,
+          "tokens": 1295,
+          "tools": [
+            "select_slot"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "select_slot",
+          "arguments": {
+            "task_id": "interview",
+            "start": "2026-10-05T09:00:00+08:00"
+          },
+          "result": {
+            "task_id": "interview",
+            "title": "准备项目演示",
+            "start": "2026-10-05T09:00:00+08:00",
+            "end": "2026-10-05T10:00:00+08:00"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 4,
+          "milliseconds": 3862,
+          "tokens": 1418,
+          "tools": [
+            "select_slot"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "select_slot",
+          "arguments": {
+            "task_id": "reading",
+            "start": "2026-10-05T14:00:00+08:00"
+          },
+          "result": {
+            "error": "tool is not available at the current planning stage"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 5,
+          "milliseconds": 1328,
+          "tokens": 1496,
+          "tools": [
+            "select_slot"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "select_slot",
+          "arguments": {
+            "task_id": "paperwork",
+            "start": "2026-10-06T09:00:00+08:00"
+          },
+          "result": {
+            "error": "tool is not available at the current planning stage"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 6,
+          "milliseconds": 717,
+          "tokens": 1544,
+          "tools": [
+            "find_slots"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "interview"
+          },
+          "result": {
+            "error": "task already assigned; select a remaining task"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 7,
+          "milliseconds": 697,
+          "tokens": 1590,
+          "tools": [
+            "find_slots"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "reading"
+          },
+          "result": {
+            "candidates": [
+              {
+                "task_id": "reading",
+                "title": "阅读与整理笔记",
+                "start": "2026-10-05T11:00:00+08:00",
+                "end": "2026-10-05T11:45:00+08:00"
+              },
+              {
+                "task_id": "reading",
+                "title": "阅读与整理笔记",
+                "start": "2026-10-05T11:15:00+08:00",
+                "end": "2026-10-05T12:00:00+08:00"
+              },
+              {
+                "task_id": "reading",
+                "title": "阅读与整理笔记",
+                "start": "2026-10-05T14:00:00+08:00",
+                "end": "2026-10-05T14:45:00+08:00"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "model",
+          "step": 8,
+          "milliseconds": 5035,
+          "tokens": 1901,
+          "tools": [
+            "select_slot"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "select_slot",
+          "arguments": {
+            "task_id": "reading",
+            "start": "2026-10-05T14:00:00+08:00"
+          },
+          "result": {
+            "task_id": "reading",
+            "title": "阅读与整理笔记",
+            "start": "2026-10-05T14:00:00+08:00",
+            "end": "2026-10-05T14:45:00+08:00"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 9,
+          "milliseconds": 4760,
+          "tokens": 1995,
+          "tools": [
+            "find_slots"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "find_slots",
+          "arguments": {
+            "task_id": "paperwork"
+          },
+          "result": {
+            "candidates": [
+              {
+                "task_id": "paperwork",
+                "title": "整理个人资料",
+                "start": "2026-10-05T11:00:00+08:00",
+                "end": "2026-10-05T11:30:00+08:00"
+              },
+              {
+                "task_id": "paperwork",
+                "title": "整理个人资料",
+                "start": "2026-10-05T11:15:00+08:00",
+                "end": "2026-10-05T11:45:00+08:00"
+              },
+              {
+                "task_id": "paperwork",
+                "title": "整理个人资料",
+                "start": "2026-10-05T11:30:00+08:00",
+                "end": "2026-10-05T12:00:00+08:00"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "model",
+          "step": 10,
+          "milliseconds": 6383,
+          "tokens": 2307,
+          "tools": [
+            "select_slot"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "select_slot",
+          "arguments": {
+            "task_id": "paperwork",
+            "start": "2026-10-05T11:00:00+08:00"
+          },
+          "result": {
+            "task_id": "paperwork",
+            "title": "整理个人资料",
+            "start": "2026-10-05T11:00:00+08:00",
+            "end": "2026-10-05T11:30:00+08:00"
+          }
+        },
+        {
+          "kind": "model",
+          "step": 11,
+          "milliseconds": 11425,
+          "tokens": 2634,
+          "tools": [
+            "propose_calendar"
+          ]
+        },
+        {
+          "kind": "tool",
+          "name": "propose_calendar",
+          "arguments": {},
+          "result": {
+            "events": [
+              {
+                "task_id": "interview",
+                "title": "准备项目演示",
+                "start": "2026-10-05T09:00:00+08:00",
+                "end": "2026-10-05T10:00:00+08:00"
+              },
+              {
+                "task_id": "reading",
+                "title": "阅读与整理笔记",
+                "start": "2026-10-05T14:00:00+08:00",
+                "end": "2026-10-05T14:45:00+08:00"
+              },
+              {
+                "task_id": "paperwork",
+                "title": "整理个人资料",
+                "start": "2026-10-05T11:00:00+08:00",
+                "end": "2026-10-05T11:30:00+08:00"
+              }
+            ],
+            "input_sha256": "74cafc07f9c9a2851bb4e8c793b4197fab6848cbf4c2e81c1121846e8c88643b",
+            "review_required": true,
+            "boundary": "Draft only; no calendar account is connected."
+          }
+        }
+      ]
+    }
+  ]
+}

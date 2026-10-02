@@ -1,0 +1,26 @@
+[
+  {
+    "id": "north-billing",
+    "tenant": "north",
+    "audience": "support",
+    "version": 1,
+    "title": "北区租户：席位与退款",
+    "body": "本文件为联调样例，不是实际服务条款。\n席位扩容从下一账期生效。\n退款申请需提供订单号，由财务在两个工作日内复核。\n支持人员只能提交申请，不能直接批准退款。"
+  },
+  {
+    "id": "north-sso-admin",
+    "tenant": "north",
+    "audience": "admin",
+    "version": 3,
+    "title": "北区租户：SSO 切换窗口",
+    "body": "本文件为联调样例。\nSSO 切换安排在周三 20:00 至 20:30。\n停用旧 IdP 前，管理员须完成备用账号登录验证。\n回退时恢复上一版元数据，不删除用户绑定。"
+  },
+  {
+    "id": "south-billing",
+    "tenant": "south",
+    "audience": "support",
+    "version": 2,
+    "title": "南区租户：退款例外",
+    "body": "本文件为联调样例，不是实际服务条款。\n退款由南区负责人按年度合同逐单复核。\n内部核对标签：SOUTH-ONLY-47。\n本条款不适用于北区租户。"
+  }
+]

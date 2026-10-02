@@ -1,0 +1,13 @@
+month,region,product,orders,revenue_cents,returns
+2026-06,north,desk,60,6000000,2
+2026-06,north,lamp,40,4000000,1
+2026-06,south,desk,48,4800000,1
+2026-06,south,lamp,32,3200000,1
+2026-07,north,desk,72,7200000,2
+2026-07,north,lamp,48,4800000,1
+2026-07,south,desk,54,5400000,1
+2026-07,south,lamp,36,3600000,1
+2026-08,north,desk,54,5400000,6
+2026-08,north,lamp,36,3600000,2
+2026-08,south,desk,58,5800000,1
+2026-08,south,lamp,38,3800000,1

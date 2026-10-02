@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-02T14:07:11.784122+00:00",
+  "scope": "offline fixtures and loopback HTTP; no real model inference",
+  "checks_passed": 13,
+  "checks": [
+    "three_tool_loops_complete_with_scripted_models_not_quality_measurement",
+    "integer_cents_aggregate_to_independent_expected_monthly_values",
+    "sql_writes_schema_pragmas_extensions_multiple_statements_and_work_budget_denied",
+    "invalid_sales_import_preserves_previous_dataset",
+    "retrieved_exact_quotes_tenant_role_and_live_revocation_checked",
+    "dataset_changes_invalidate_final_analysis",
+    "calendar_overlap_deadline_and_missing_timezone_rejected",
+    "calendar_requires_approval_and_repeated_approval_reuses_one_file",
+    "changed_calendar_blocks_old_proposal_export",
+    "calendar_utc_text_escaping_and_utf8_octet_folding",
+    "outage_cancellation_unknown_tools_and_turn_budget_fail_closed",
+    "single_operator_lock_and_interrupted_run_quarantine",
+    "real_http_host_origin_nonce_and_queue_contracts"
+  ]
+}
